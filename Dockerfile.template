@@ -37,4 +37,5 @@ COPY udev/95-balena-audio.rules /etc/udev/rules.d/95-balena-audio.rules
 COPY entry.sh .
 ENTRYPOINT [ "/bin/bash", "/usr/src/entry.sh" ]
 
-CMD [ "pulseaudio" ]
+COPY custom.pa /usr/src/custom.pa
+CMD [ "pulseaudio", "--file /usr/src/custom.pa" ]
